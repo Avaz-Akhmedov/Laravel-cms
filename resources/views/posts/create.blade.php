@@ -5,7 +5,7 @@
 
     <div class="p-8 lg:mt-0 rounded shadow bg-white w-[600px] h-fit ">
 
-        <form  method="POST" action="{{route("store")}}">
+        <form action="{{route("store")}}" method="POST" >
               @csrf
 
             <div class="md:flex mb-8 items-center">
@@ -15,7 +15,7 @@
                     </label>
                 </div>
                 <div class="md:w-2/3">
-                    <input name="title" id="title" class="block w-full bg-[#BEC9DE] outline-none px-4 py-2 font-semibold"  type="text" />
+                    <input name="title" value="{{old("title")}}" id="title" class="block w-full bg-[#BEC9DE] outline-none px-4 py-2 font-semibold"  type="text" />
                     @error("title")
                     <p class="text-base text-center pt-2 text-red-600 font-semibold">{{$message}}</p>
                     @enderror
@@ -29,8 +29,8 @@
                     </label>
                 </div>
                 <div class="md:w-2/3 flex flex-col items-center">
-                        <select id="category" name="category" class=" block w-full outline-none bg-[#BEC9DE] px-4 py-2 font-semibold" >
-                            <option value=""></option>
+                        <select  id="category" name="category" class=" block w-full outline-none bg-[#BEC9DE] px-4 py-2 font-semibold" >
+                            <option value="{{old("category")}}">{{old("category")}}</option>
                             <option value="education">Education</option>
                             <option value="Health">Health</option>
                             <option value="Technology">Technology</option>
@@ -52,7 +52,7 @@
                     </label>
                 </div>
                 <div class="md:w-2/3">
-                    <textarea name="content" id="content" class="form-textarea block w-full outline-none bg-[#BEC9DE] px-4 py-2 font-semibold"  rows="8"></textarea>
+                    <textarea name="content" id="content" class="form-textarea block w-full outline-none bg-[#BEC9DE] px-4 py-2 font-semibold"  rows="8">{{old("content")}}</textarea>
                     @error("content")
                     <p class="text-base pt-2 text-center text-red-600 font-semibold">{{$message}}</p>
                     @enderror
@@ -66,7 +66,7 @@
                     </label>
                 </div>
                 <div class="md:w-2/3">
-                    <input name="tags" id="tags" class="block w-full bg-[#BEC9DE] outline-none px-4 py-2 font-semibold"  type="text" />
+                    <input value="{{old("tags")}}" name="tags" id="tags" class="block w-full bg-[#BEC9DE] outline-none px-4 py-2 font-semibold"  type="text" />
                     @error("tags")
                     <p class="text-base pt-2 text-center text-red-600 font-semibold">{{$message}}</p>
                     @enderror
@@ -76,7 +76,7 @@
             <div class="md:flex md:items-center">
                 <div class="md:w-1/3"></div>
                 <div class="md:w-2/3">
-                    <button class="shadow bg-blue-700 hover:bg-blue-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded active:scale-95" type="submit">
+                    <button  class="shadow bg-blue-700 hover:bg-blue-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded active:scale-95" type="submit">
                         Create
                     </button>
                 </div>

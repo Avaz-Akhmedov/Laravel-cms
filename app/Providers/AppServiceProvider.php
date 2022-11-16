@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-//        Blade::if("creator",function () {
-//            return auth()->check() and auth()->user()->posts()->user_id == auth()->id();
-//        });
+        Blade::if("admin",function () {
+            return auth()->check() and auth()->user()->admin = 1;
+        });
     }
 }
