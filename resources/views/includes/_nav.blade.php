@@ -1,4 +1,5 @@
 <nav class="flex justify-between w-full h-[70px] px-10 items-center bg-[#BEC9DE]">
+
     <a href="{{route("welcome")}}" class="text-blue-800">
         <svg class="ur cv li lo la r_ rl fill-blue-800 " width="40" height="40" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -27,11 +28,10 @@
                 </div>
             </div>
         </li>
-        <li class="font-semibold text-xl relative {{request()->is("posts/manage")  ? "text-blue-800 font-bold before:content before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] before:bg-blue-800" : "text-black"}} hover:text-blue-800 hover:font-bold transition duration-300 ease-linear">
-            <a href="{{route("manage")}}">See Posts</a>
-        </li>
+
+
         <li class="font-semibold text-xl relative {{request()->is("posts/create")  ? "text-blue-800 font-bold before:content before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] before:bg-blue-800" : "text-black"}} hover:text-blue-800 hover:font-bold transition duration-300 ease-linear">
-            <a href="{{route("create")}}">Registered Users</a>
+            <a href="{{route("admin.users.index")}}">Registered Users</a>
         </li>
     </ul>
 
@@ -102,13 +102,9 @@
                     <li class="font-semibold text-xl relative {{request()->is("login")  ? "text-blue-800 font-bold before:content before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] before:bg-blue-800" : "text-black"}}  hover:text-blue-800 hover:font-bold ">
                         <a href="{{route("login")}}">Login</a>
                     </li>
-
+                @endauth
             </ul>
-    @endauth
 
     @endadmin
-
-
-
 </nav>
 

@@ -66,11 +66,5 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
 
-    public function logout(): \Illuminate\Http\RedirectResponse
-    {
-        Session::flush();
-        Auth::logout();
 
-        return redirect()->route("welcome");
-    }
 }

@@ -42,9 +42,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        if (auth()->user()->admin == 1) {
-            return  redirect()->route("admin.index");
-        }
+
 
         return redirect()->route("dashboard");
     }

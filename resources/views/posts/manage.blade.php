@@ -15,18 +15,18 @@
                 @forelse($posts as $post)
                 <tr class="border-gray-300">
                     <td
-                        class="px-4 py-8 border-t border-b border-gray-300 text-lg"
+                        class="px-4 py-8 border-t border-b border-gray-300"
                     >
-                        <p>
+                        <a class="text-2xl text-blue-800 hover:underline" href="#">
                             {{$post->title}}
-                        </p>
+                        </a>
                     </td>
                     <td
                         class="px-4 py-8 border-t border-b border-gray-300 text-lg"
                     >
                         <a
-                            href="#"
-                            class="text-blue-400 px-6 py-2 rounded-xl"
+                            href="{{route("post.edit",$post->id)}}"
+                            class="text-blue-600 text-xl hover:underline hover:text-blue-800 px-6 py-2 rounded-xl"
                         ><i
                                 class="fa-solid fa-pen-to-square"
                             ></i>
@@ -36,11 +36,10 @@
                     <td
                         class="px-4 py-8 border-t border-b border-gray-300 text-lg"
                     >
-                        <form action="">
-                            <button class="text-red-600">
-                                <i
-                                    class="fa-solid fa-trash-can"
-                                ></i>
+                        <form action="{{route("post.destroy",$post->id)}}" method="POST">
+                            @csrf
+                            @method("DELETE")
+                            <button class="text-red-600 text-xl hover:underline hover:text-red-800">
                                 Delete
                             </button>
                         </form>

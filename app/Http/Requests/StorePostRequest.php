@@ -24,7 +24,6 @@ class StorePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "user_id" => "required",
             "title" => "required|max:255",
             "content" => "required|between:30,1000",
             "category" => "required",
