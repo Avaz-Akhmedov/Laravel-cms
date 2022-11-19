@@ -15,7 +15,7 @@ class PostsFactory extends Factory
             "title" => $this->faker->sentence(),
             "content" => $this->faker->paragraph(5),
             "category" => $this->faker->randomElement(["education", "health", "sport", "lifestyle"]),
-            "tags" => "trending,hot"
+            "tags" => "trending,hot,new"
 
         ];
     }

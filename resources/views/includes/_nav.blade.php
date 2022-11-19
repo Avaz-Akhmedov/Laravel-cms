@@ -30,8 +30,8 @@
         </li>
 
 
-        <li class="font-semibold text-xl relative {{request()->is("posts/create")  ? "text-blue-800 font-bold before:content before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] before:bg-blue-800" : "text-black"}} hover:text-blue-800 hover:font-bold transition duration-300 ease-linear">
-            <a href="{{route("admin.users.index")}}">Registered Users</a>
+        <li class="font-semibold text-xl relative {{request()->is("admin/users")  ? "text-blue-800 font-bold before:content before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] before:bg-blue-800" : "text-black"}} hover:text-blue-800 hover:font-bold transition duration-300 ease-linear">
+            <a href="{{route("admin.users.index")}}" >Registered Users</a>
         </li>
     </ul>
 
@@ -75,24 +75,7 @@
                         <a href="{{route("index")}}">Posts</a>
                     </li>
 
-                    <li>
-                        <div class="relative group">
-                            <a href="#"
-                               class="no-underline text-black hover:text-blue-800 hover:font-bold font-semibold text-xl md:text-blue-dark flex items-center py-4  group-hover:border-grey-light">
-                                Categories
-                            </a>
 
-                            <div
-                                class="items-center z-40 absolute border border-t-0 rounded-b-lg  bg-white  invisible group-hover:visible w-auto ">
-                                <a href="#" class="px-4 py-2 block text-black hover:text-blue-800">Education</a>
-                                <a href="#" class="px-4 py-2 block text-black hover:text-blue-800">Health</a>
-                                <a href="#" class="px-4 py-2 block text-black hover:text-blue-800">Technology</a>
-                                <a href="#" class="px-4 py-2 block text-black hover:text-blue-800">Sport</a>
-                                <a href="#" class="px-4 py-2 block text-black hover:text-blue-800">Lifestyle</a>
-                                <a href="#" class="px-4 py-2 block text-black hover:text-blue-800">Cooking</a>
-                            </div>
-                        </div>
-                    </li>
 
 
                     <li class="font-semibold text-xl relative {{request()->is("register")  ? "text-blue-800 font-bold before:content before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] before:bg-blue-800" : "text-black"}}  hover:text-blue-800 hover:font-bold ">

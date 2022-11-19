@@ -45,7 +45,7 @@
                             <td class="px-5 py-5 border-b border-gray-200 bg-white">
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0">
-                                        <img class=" w-[60px] rounded-full"
+                                        <img loading="lazy" class=" w-[60px] rounded-full"
                                              src="{{$post->image ? asset($post->image) : asset("images/demo.jpg")}}"
                                              alt="{{$post->title}}"/>
                                     </div>

@@ -10,7 +10,8 @@ class PostsController extends Controller
 
     public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        $posts =  Posts::latest()->get();
+
+        $posts =  Posts::latest()->filter(request(["tag","search"]))->get();
         return view("posts.index",compact("posts"));
     }
 
