@@ -8,7 +8,7 @@
             @foreach($posts as $post)
 
                 <div data-aos="fade-up" class="max-w-sm rounded overflow-hidden bg-white">
-                    <img class="w-full" src="{{asset("images/demo.jpg")}}" alt="{{$post->title}}">
+                    <img class="w-full" src="{{$post->image ? asset($post->image) : asset("images/demo.jpg")}}" alt="{{$post->title}}">
                     <div class="px-6 py-4">
                         <div class="font-bold text-2xl font-bold cursor-pointer mb-2 text-blue-800 hover:underline">
                             <a href="">{{$post->title}}</a>

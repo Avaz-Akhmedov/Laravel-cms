@@ -5,7 +5,7 @@
 
         <div class="p-8 lg:mt-0 rounded shadow bg-white w-[600px] h-fit ">
 
-            <form action="{{route("post.update",$post->id)}}" method="POST" >
+            <form action="{{route("post.update",$post->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                  @method("PATCH")
                 <div class="md:flex mb-8 items-center">
@@ -54,6 +54,22 @@
                     <div class="md:w-2/3">
                         <textarea name="content" id="content" class="form-textarea block w-full outline-none bg-[#BEC9DE] px-4 py-2 font-semibold"  rows="8">{{$post->content}}</textarea>
                         @error("content")
+                        <p class="text-base pt-2 text-center text-red-600 font-semibold">{{$message}}</p>
+                        @enderror
+                    </div>
+                </div>
+
+
+                <div class="md:flex mb-8">
+
+                    <div class="md:w-1/3">
+                        <label class="block text-black font-bold md:text-left mb-3 md:mb-0 pr-4" for="content">
+                            Image
+                        </label>
+                    </div>
+                    <div class="md:w-2/3">
+                        <input type="file" name="image" value="{{old("image")}}">
+                        @error("image")
                         <p class="text-base pt-2 text-center text-red-600 font-semibold">{{$message}}</p>
                         @enderror
                     </div>

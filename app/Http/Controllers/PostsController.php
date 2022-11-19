@@ -28,6 +28,13 @@ class PostsController extends Controller
          $fields = $request->validated();
 
          $fields["user_id"] = auth()->id();
+
+         if($image = $request->file("image")) {
+             $image_name = time() . "-" . $image->getClientOriginalName() . "." . $image->getClientOriginalExtension();
+             $image_path = $image->storeAs("images",$image_name,"public");
+             $fields["image"] = "/storage/" .$image_path;
+         }
+
          Posts::create($fields);
 
          return redirect()->route("dashboard");
@@ -39,8 +46,17 @@ class PostsController extends Controller
         return view("posts.edit",compact("post"));
     }
 
-    public function update(Posts $post,StorePostRequest $request) {
+    public function update(Posts $post,StorePostRequest $request): \Illuminate\Http\RedirectResponse
+    {
         $fields = $request->validated();
+
+
+
+        if ($image = $request->file("image")) {
+            $image_name = time() . "-" .$image->getClientOriginalName() . "." . $image->getClientOriginalExtension();
+            $image_path = $image->storeAs("images",$image_name,"public");
+            $fields["image"] = "/storage/" .$image_path;
+        }
 
         $post->update($fields);
 

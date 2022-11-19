@@ -16,6 +16,7 @@ return new class extends Migration
             $table->longText("content");
             $table->string("category");
             $table->string("tags");
+            $table->string("image")->nullable();
             $table->timestamps();
         });
     }

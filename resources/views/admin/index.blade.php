@@ -46,8 +46,8 @@
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0">
                                         <img class=" w-[60px] rounded-full"
-                                             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                                             alt="" />
+                                             src="{{$post->image ? asset($post->image) : asset("images/demo.jpg")}}"
+                                             alt="{{$post->title}}"/>
                                     </div>
                                 </div>
                             </td>
