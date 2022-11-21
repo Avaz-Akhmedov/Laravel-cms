@@ -38,7 +38,7 @@ Route::group(["middleware" => "auth", "prefix" => "posts" ],function () {
     Route::delete("/{post}",[PostsController::class,"destroy"])->name("post.destroy");
 });
 
-Route::get("/posts/{post}",[PostsController::class,"show"])->name("show");
+Route::get("/posts/{post}",[PostsController::class,"show"])->name("post.show");
 
 
 

@@ -12,7 +12,7 @@
                     <img loading="lazy" class="w-full" src="{{$post->image ? asset($post->image) : asset("images/demo.jpg")}}" alt="{{$post->title}}">
                     <div class="px-6 py-4">
                         <div class="font-bold text-2xl font-bold cursor-pointer mb-2 text-blue-800 hover:underline">
-                            <a href="">{{$post->title}}</a>
+                            <a href="{{route("post.show",$post->id)}}">{{$post->title}}</a>
                         </div>
                         <p class="text-black font-semibold text-base">
                             {{substr($post->content,0,200),"...."}}
