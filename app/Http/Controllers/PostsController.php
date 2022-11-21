@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Posts;
+use App\Http\Requests\PostUpdateRequest;
+use Illuminate\Support\Facades\Storage;
+
 class PostsController extends Controller
 {
 
     public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
 
-        $posts =  Posts::latest()->filter(request(["tag","search"]))->get();
+        $posts =  Posts::latest()->filter(request(["tag","category","search"]))->get();
         return view("posts.index",compact("posts"));
     }
 
@@ -47,19 +50,22 @@ class PostsController extends Controller
         return view("posts.edit",compact("post"));
     }
 
-    public function update(Posts $post,StorePostRequest $request): \Illuminate\Http\RedirectResponse
+    public function update(Posts $post,PostUpdateRequest $request): \Illuminate\Http\RedirectResponse
     {
+
+
         $fields = $request->validated();
 
 
 
-        if ($image = $request->file("image")) {
-            $image_name = time() . "-" .$image->getClientOriginalName() . "." . $image->getClientOriginalExtension();
+        $fields["user_id"] = auth()->id();
+
+        if($image = $request->file("image")) {
+          Storage::delete($post->image);
+            $image_name = time() . "-" . $image->getClientOriginalName() . "." . $image->getClientOriginalExtension();
             $image_path = $image->storeAs("images",$image_name,"public");
             $fields["image"] = "/storage/" .$image_path;
         }
-
-        $post->update($fields);
 
 
         if (auth()->user()->is_admin == 1 ) {

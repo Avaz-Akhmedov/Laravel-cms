@@ -4,9 +4,8 @@
     <section class="min-h-screen bg-[#BEC9DE] w-full flex items-center flex-col justify-center">
 
         <main class="lg:grid lg:grid-cols-3 gap-4 space-y-4 md:space-y-0 pt-36 ">
-            <x-search-card/>
+            <x-search-card />
             <x-category-card/>
-
         @foreach($posts as $post)
 
                 <div data-aos="fade-up" class="max-w-sm rounded overflow-hidden bg-white">

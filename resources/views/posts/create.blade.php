@@ -81,7 +81,7 @@
                     </label>
                 </div>
                 <div class="md:w-2/3">
-                    <input value="{{old("tags")}}" name="tags" id="tags" class="block w-full bg-[#BEC9DE] outline-none px-4 py-2 font-semibold"  type="text" />
+                    <input value="{{old("tags")}}" placeholder="comma separated" name="tags" id="tags" class="block w-full bg-[#BEC9DE] outline-none px-4 py-2 font-semibold"  type="text" />
                     @error("tags")
                     <p class="text-base pt-2 text-center text-red-600 font-semibold">{{$message}}</p>
                     @enderror

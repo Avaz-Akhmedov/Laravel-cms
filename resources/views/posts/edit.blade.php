@@ -68,7 +68,7 @@
                         </label>
                     </div>
                     <div class="md:w-2/3">
-                        <input type="file" name="image" value="{{old("image")}}">
+                        <input type="file" name="image" value="{{$post->image}}">
                         @error("image")
                         <p class="text-base pt-2 text-center text-red-600 font-semibold">{{$message}}</p>
                         @enderror
@@ -82,7 +82,10 @@
                         </label>
                     </div>
                     <div class="md:w-2/3">
-                        <input value="{{$post->tags}}" name="tags" id="tags" class="block w-full bg-[#BEC9DE] outline-none px-4 py-2 font-semibold"  type="text" />
+                        <input value="{{$post->tags}}" placeholder="coma separated"
+                               name="tags"
+                               id="tags"
+                               class="block w-full bg-[#BEC9DE] outline-none px-4 py-2 font-semibold"  type="text" />
                         @error("tags")
                         <p class="text-base pt-2 text-center text-red-600 font-semibold">{{$message}}</p>
                         @enderror
@@ -93,7 +96,7 @@
                     <div class="md:w-1/3"></div>
                     <div class="md:w-2/3">
                         <button  class="shadow bg-blue-700 hover:bg-blue-800 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded active:scale-95" type="submit">
-                            Create
+                            Update
                         </button>
                     </div>
                 </div>

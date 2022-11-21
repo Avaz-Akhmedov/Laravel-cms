@@ -17,13 +17,17 @@ class Posts extends Model
              $query->where("tags","like","%" . request("tag") . "%");
          }
 
+
        if($filters["search"] ??  false) {
-           $query->where("title","like","%" . request("search") . "%")
+           $query
+               ->where("title","like","%" . request("search") . "%")
                ->orWhere("category","like","%" . request("search") . "%")
-               ->orWhere("tags","like","%" . request("search") . "%")
-               ->orWhere("content","like","%" . request("search") . "%");
+               ->orWhere("tags","like","%" . request("search") . "%");
        }
      }
+
+
+
 
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

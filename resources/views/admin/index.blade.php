@@ -33,7 +33,6 @@
                         <tbody>
                         @foreach($posts as $post)
                         <tr>
-
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <a href="#" class="text-blue-800 text-base font-semibold hover:underline whitespace-no-wrap">{{$post->title}}</a>
                             </td>
@@ -46,8 +45,7 @@
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0">
                                         <img loading="lazy" class=" w-[60px] rounded-full"
-                                             src="{{$post->image ? asset($post->image) : asset("images/demo.jpg")}}"
-                                             alt="{{$post->title}}"/>
+                                             src="{{$post->image ? asset($post->image) : asset("images/demo.jpg")}}"                                             alt="{{$post->title}}"/>
                                     </div>
                                 </div>
                             </td>
