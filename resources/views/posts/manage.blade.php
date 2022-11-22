@@ -14,24 +14,15 @@
                 <tbody>
                 @forelse($posts as $post)
                 <tr class="border-gray-300">
-                    <td
-                        class="px-4 py-8 border-t border-b border-gray-300"
-                    >
-                        <a class="text-2xl text-blue-800 hover:underline" href="#">
+                    <td class="px-4 py-8 border-t border-b border-gray-300">
+                        <a href="{{route("post.show",$post->id)}}" class="text-2xl text-blue-800 hover:underline" >
                             {{$post->title}}
                         </a>
                     </td>
                     <td
                         class="px-4 py-8 border-t border-b border-gray-300 text-lg"
                     >
-                        <a
-                            href="{{route("post.edit",$post->id)}}"
-                            class="text-blue-600 text-xl hover:underline hover:text-blue-800 px-6 py-2 rounded-xl"
-                        ><i
-                                class="fa-solid fa-pen-to-square"
-                            ></i>
-                            Edit</a
-                        >
+                        <a href="{{route("post.edit",$post->id)}}" class="text-blue-600 text-xl hover:underline hover:text-blue-800 px-6 py-2 rounded-xl">Edit</a>
                     </td>
                     <td
                         class="px-4 py-8 border-t border-b border-gray-300 text-lg"

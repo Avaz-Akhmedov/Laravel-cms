@@ -38,7 +38,7 @@
     <section class="w-full min-h-screen flex items-center justify-center gap-16 flex-col   bg-[#1f2937] ">
         <h1 class="text-5xl text-white fon-bold" data-aos="fade-left">Recent Posts</h1>
 
-        <article class="flex gap-4 overflow-x-hidden h-[300px] mx-6 " data-aos="fade-right">
+        <article class="flex gap-4 overflow-hidden h-[300px] mx-6 " data-aos="fade-right">
             @foreach($posts as $post)
                 <div class=" min-w-[430px] h-[300px]  px-8 py-4 mx-auto bg-gray-300 rounded-lg shadow-md ">
                     <div class="flex items-center justify-between">
@@ -46,14 +46,14 @@
                         <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-200 transform bg-black rounded cursor-pointer hover:bg-gray-500 capitalize">{{$post->category}}</a>
                     </div>
                     <div class="mt-2">
-                        <a href="{{route("show",$post->id)}}" class="text-2xl font-bold text-blue-800  hover:underline">{{$post->title}}</a>
+                        <a href="{{route("post.show",$post->id)}}" class="text-2xl font-bold text-blue-800  hover:underline">{{$post->title}}</a>
                         <p class="mt-2 text-black">{{substr($post->content,0,200),"..."}}.</p>
                     </div>
                     <div class="flex items-center justify-between mt-4">
-                        <a href="#" class="text-blue-600 text-xl font-semibold hover:underline">Read
+                        <a href="{{route("post.show",$post->id)}}" class="text-blue-600 text-xl font-semibold hover:underline">Read
                             more ⟶</a>
                         <div class="flex items-center">
-                            <a class="font-bold text-black cursor-pointer ">John Doe</a>
+                            <a class="font-bold text-black cursor-pointer ">{{$post->user->name}}</a>
                         </div>
                     </div>
                 </div>

@@ -23,7 +23,7 @@ Route::group(["middleware" => ["admin","auth"],"prefix" => "admin"],function () 
 
 
 //HOME ROUTE
-Route::get('/',[HomeController::class,"index"])->name("welcome");
+Route::get('/',[HomeController::class,"index"])->name("welcome")->middleware("guest");
 Route::get("/posts",[PostsController::class,"index"])->name("index");
 
 

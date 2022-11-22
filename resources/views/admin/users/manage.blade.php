@@ -4,10 +4,10 @@
     @forelse($posts as $post)
         <tbody >
         <tr class="border-gray-300">
-            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg ">
-                <p class="text-2xl font-semibold">
+            <td class="px-4 py-8 text-blue-800  border-t border-b border-gray-300 text-lg ">
+                <a href="{{route("post.show",$post->id)}}" class="text-2xl font-semibold hover:underline">
                     {{$post->title}}
-                </p>
+                </a>
             </td>
 
             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
@@ -30,7 +30,7 @@
         <tr class="border-gray-300">
             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                 <p class="text-xl font-semibold text-center">
-                    This user doesn't have posts
+                   This user doesn't have posts
                 </p>
             </td>
             @endforelse

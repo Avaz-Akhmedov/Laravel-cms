@@ -37,6 +37,9 @@
 
     @else
             <ul class="flex items-center space-x-6">
+                <li class="font-semibold text-xl relative {{request()->is("posts")  ? "text-blue-800 font-bold before:content before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] before:bg-blue-800" : "text-black"}} hover:text-blue-800 hover:font-bold ">
+                    <a href="{{route("index")}}">Posts</a>
+                </li>
 
                 @auth
 
@@ -70,9 +73,6 @@
                 @else
                     <li class="font-semibold text-xl relative {{request()->is("/")  ? "text-blue-800 font-bold before:content before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] before:bg-blue-800" : "text-black"}} hover:text-blue-800 hover:font-bold transition duration-300 ease-linear">
                         <a href="{{route("welcome")}}">Home</a>
-                    </li>
-                    <li class="font-semibold text-xl relative {{request()->is("posts")  ? "text-blue-800 font-bold before:content before:absolute before:bottom-0 before:left-0 before:w-full before:h-[3px] before:bg-blue-800" : "text-black"}} hover:text-blue-800 hover:font-bold ">
-                        <a href="{{route("index")}}">Posts</a>
                     </li>
 
 

@@ -14,7 +14,7 @@ class PostsController extends Controller
     public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
 
-        $posts =  Posts::latest()->filter(request(["tag","category","search"]))->get();
+        $posts =  Posts::latest()->filter(request(["tag","search"]))->get();
         return view("posts.index",compact("posts"));
     }
 
@@ -61,7 +61,7 @@ class PostsController extends Controller
         $fields["user_id"] = auth()->id();
 
         if($image = $request->file("image")) {
-          Storage::delete($post->image);
+            Storage::delete($post->image);
             $image_name = time() . "-" . $image->getClientOriginalName() . "." . $image->getClientOriginalExtension();
             $image_path = $image->storeAs("images",$image_name,"public");
             $fields["image"] = "/storage/" .$image_path;
