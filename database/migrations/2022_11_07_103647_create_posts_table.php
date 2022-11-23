@@ -11,11 +11,10 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_id")->constrained("users")->onDelete("cascade");
+            $table->foreignId("user_id")->constrained("users")->cascadeOnDelete();
             $table->string("title");
             $table->longText("content");
-            $table->string("category");
-            $table->string("tags");
+            $table->foreignId("category_id")->constrained("categories");
             $table->string("image")->nullable();
             $table->timestamps();
         });
@@ -25,6 +24,9 @@ return new class extends Migration
 
     public function down(): void
     {
+
         Schema::dropIfExists('posts');
+
+
     }
 };

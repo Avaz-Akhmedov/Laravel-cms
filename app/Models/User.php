@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\Posts;
+use App\Models\Post;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -45,6 +45,6 @@ class User extends Authenticatable
 
     public function posts(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Posts::class);
+        return $this->hasMany(Post::class,"user_id");
     }
 }

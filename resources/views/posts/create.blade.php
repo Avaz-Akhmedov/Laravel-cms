@@ -5,7 +5,7 @@
 
     <div class="p-8 lg:mt-0 rounded shadow bg-white w-[600px] h-fit ">
 
-        <form action="{{route("store")}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route("post.store")}}" method="POST" enctype="multipart/form-data">
               @csrf
 
             <div class="md:flex mb-8 items-center">

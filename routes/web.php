@@ -16,23 +16,23 @@ Route::group(["middleware" => ["admin","auth"],"prefix" => "admin"],function () 
     Route::get("/users/{user}/edit",[RegisteredUsersController::class,"edit"])->name("admin.user.edit");
     Route::patch("/users/{user}/edit",[RegisteredUsersController::class,"update"])->name("admin.user.update");
     Route::delete("/users/{user}",[RegisteredUsersController::class,"destroy"])->name("admin.user.destroy");
-    Route::get("/users/{user}/posts/manage",[RegisteredUsersController::class,"manage"])->name("admin.user.posts.manage");
+    Route::get("/users/{user}/posts",[RegisteredUsersController::class,"manage"])->name("admin.user.posts.manage");
 });
 
 
 
 
 //HOME ROUTE
-Route::get('/',[HomeController::class,"index"])->name("welcome")->middleware("guest");
+Route::get('/',HomeController::class)->name("home.index");
 Route::get("/posts",[PostsController::class,"index"])->name("index");
 
 
 
 //POSTS ROUTE
 Route::group(["middleware" => "auth", "prefix" => "posts" ],function () {
-    Route::get("/manage",[PostsController::class,"manage"])->name("manage");
-    Route::view("/create","posts.create")->name("create");
-    Route::post("/create",[PostsController::class,"store"])->name("store");
+    Route::get("/manage",[PostsController::class,"manage"])->name("posts.manage");
+    Route::view("/create","posts.create")->name("post.create");
+    Route::post("/create",[PostsController::class,"store"])->name("post.store");
     Route::get("/{post}/edit",[PostsController::class,"edit"])->name("post.edit");
     Route::patch("/{post}/edit",[PostsController::class,"update"])->name("post.update");
     Route::delete("/{post}",[PostsController::class,"destroy"])->name("post.destroy");

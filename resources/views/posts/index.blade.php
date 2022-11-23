@@ -1,9 +1,9 @@
 <x-layout>
 
 
-    <section class="min-h-screen bg-[#BEC9DE] w-full ">
+    <section class="min-h-screen bg-[#BEC9DE] w-full">
 
-        <main class="lg:grid lg:grid-cols-3 gap-4 space-y-4 md:space-y-0 pt-36 ">
+        <main class="lg:grid lg:grid-cols-3 place-items-center gap-4 space-y-4 md:space-y-0 pt-36 ">
             <x-search-card />
         @foreach($posts as $post)
 

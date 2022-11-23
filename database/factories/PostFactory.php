@@ -4,8 +4,9 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
-
-class PostsFactory extends Factory
+use App\Models\Tag;
+use App\Models\Category;
+class PostFactory extends Factory
 {
 
     public function definition(): array
@@ -13,10 +14,8 @@ class PostsFactory extends Factory
         return [
             "user_id" => User::factory(),
             "title" => $this->faker->sentence(),
-            "content" => $this->faker->paragraph(5),
-            "category" => $this->faker->randomElement(["education", "health", "sport", "lifestyle"]),
-            "tags" => "trending,hot,new"
-
+            "content" => $this->faker->paragraph(7),
+            "category_id" => Category::factory(),
         ];
     }
 }

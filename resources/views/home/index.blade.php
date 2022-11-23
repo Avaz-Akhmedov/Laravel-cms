@@ -20,7 +20,7 @@
                     <br>
                     set it up once, and get beautiful results forever.</p>
                 <div class="flex gap-12 items-center">
-                    <a href="{{route("create")}}"
+                    <a href="{{route("post.create")}}"
                        class="bg-blue-700 text-base font-bold text-white rounded-lg hover:bg-blue-800 px-10 py-2">Create
                         Post</a>
                     <a href="{{route("register")}}" class="hover:underline text-lg font-semibold">Sign up</a>
@@ -28,7 +28,7 @@
             </div>
 
             <div class="mt-12 mr-[-100px]" data-aos="fade-up">
-                <img class="" width="500" src="{{asset("images/hero-image.png")}}" alt="">
+                <img class="" width="500" src="{{asset("images/hero-image.png")}}" alt="hero-image">
             </div>
 
         </div>

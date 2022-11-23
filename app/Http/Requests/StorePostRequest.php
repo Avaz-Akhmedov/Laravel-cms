@@ -27,7 +27,7 @@ class StorePostRequest extends FormRequest
             "title" => "required|max:255",
             "content" => "required|between:30,1000",
             "category" => "required",
-            "tags" => "required",
+            "tags" => "required|exists:tags,id",
             "image" => "required|mimes:jpeg,png|image|max:2000"
         ];
     }

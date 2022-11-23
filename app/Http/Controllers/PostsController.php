@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
-use App\Models\Posts;
+use App\Models\Post;
 use App\Http\Requests\PostUpdateRequest;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,14 +13,14 @@ class PostsController extends Controller
     public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
 
-        $posts =  Posts::latest()->filter(request(["tag","search"]))->get();
+        $posts =  Post::with("category","tags",)->get();
         return view("posts.index",compact("posts"));
     }
 
 
 
 
-    public function show(Posts $post) {
+    public function show(Post $post) {
         return view("posts.show",compact("post"));
     }
 
@@ -39,18 +38,18 @@ class PostsController extends Controller
              $fields["image"] = "/storage/" .$image_path;
          }
 
-         Posts::create($fields);
+         Post::create($fields);
 
          return redirect()->route("dashboard");
     }
 
 
-    public function edit(Posts $post): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    public function edit(Post $post): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         return view("posts.edit",compact("post"));
     }
 
-    public function update(Posts $post,PostUpdateRequest $request): \Illuminate\Http\RedirectResponse
+    public function update(Post $post, PostUpdateRequest $request): \Illuminate\Http\RedirectResponse
     {
 
 
@@ -77,7 +76,7 @@ class PostsController extends Controller
     }
 
 
-    public function destroy(Posts $post): \Illuminate\Http\RedirectResponse
+    public function destroy(Post $post): \Illuminate\Http\RedirectResponse
     {
         $post->delete();
         if (auth()->user()->is_admin == 1) {
