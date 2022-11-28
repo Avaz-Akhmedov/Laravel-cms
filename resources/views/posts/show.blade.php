@@ -8,8 +8,13 @@
                     src="{{$post->image ? asset($post->image) : asset("images/demo.jpg")}}" alt="{{$post->title}}"/>
 
                 <h3 class="text-2xl mb-2">{{$post->title}}</h3>
-                <div class="text-xl  mb-4">Category:<span class="text-blue-800 font-bold capitalize">{{$post->category}}</span></div>
-                <x-tags-card :tags="$post->tags"/>
+                <div class="text-xl  mb-4">Category:<span class="text-blue-800 font-bold capitalize">{{$post->category->name}}</span></div>
+
+
+                <div class="flex gap-4">
+                    <x-tags :tags="$post->tags"></x-tags>
+
+                </div>
                 <div class="text-xl my-4">
                    Posted by <span class="text-blue-800 font-bold">{{ $post->user->name }}</span>
                 </div>

@@ -11,7 +11,7 @@ class TagFactory extends Factory
     public function definition(): array
     {
         return [
-            "name" => "trending,hot,new"
+            "name" => "hot,new,trending"
         ];
     }
 }

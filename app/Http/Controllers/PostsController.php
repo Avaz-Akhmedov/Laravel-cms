@@ -13,14 +13,15 @@ class PostsController extends Controller
     public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
 
-        $posts =  Post::with("category","tags",)->get();
+        $posts =  Post::latest()->filter(request(['', 'search']))->get();
         return view("posts.index",compact("posts"));
     }
 
 
 
 
-    public function show(Post $post) {
+    public function show(Post $post): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
         return view("posts.show",compact("post"));
     }
 
@@ -65,6 +66,8 @@ class PostsController extends Controller
             $image_path = $image->storeAs("images",$image_name,"public");
             $fields["image"] = "/storage/" .$image_path;
         }
+
+
 
 
         if (auth()->user()->is_admin == 1 ) {

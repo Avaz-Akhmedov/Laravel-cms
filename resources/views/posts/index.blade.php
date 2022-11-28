@@ -4,7 +4,9 @@
     <section class="min-h-screen bg-[#BEC9DE] w-full">
 
         <main class="lg:grid lg:grid-cols-3 place-items-center gap-4 space-y-4 md:space-y-0 pt-36 ">
-            <x-search-card />
+            @include("includes._search")
+
+
         @foreach($posts as $post)
 
                 <div data-aos="fade-up" class="max-w-sm rounded overflow-hidden bg-white">
@@ -19,7 +21,12 @@
                     </div>
 
 
-                 <x-tags-card :tags="$post->tags"/>
+
+                    <div class="px-6 pt-4 pb-2">
+
+                     <x-tags :tags="$post->tags"></x-tags>
+
+                    </div>
 
                 </div>
 

@@ -1,11 +1,10 @@
-
 <div class="pt-2 absolute absolute top-[80px] right-[50px] mx-auto text-gray-600">
     <form action="{{route("index")}}">
         <label>
             <input
                 value="{{request("search")}}"
                 class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-                   type="search" name="search" placeholder="Search">
+                type="search" name="search" placeholder="Search">
         </label>
         <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
             <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
