@@ -31,7 +31,7 @@ Route::get("/posts",[PostsController::class,"index"])->name("index");
 //POSTS ROUTE
 Route::group(["middleware" => "auth", "prefix" => "posts" ],function () {
     Route::get("/manage",[PostsController::class,"manage"])->name("posts.manage");
-    Route::view("/create","posts.create")->name("post.create");
+    Route::get("/create",[PostsController::class,"create"])->name("post.create");
     Route::post("/create",[PostsController::class,"store"])->name("post.store");
     Route::get("/{post}/edit",[PostsController::class,"edit"])->name("post.edit");
     Route::patch("/{post}/edit",[PostsController::class,"update"])->name("post.update");

@@ -23,9 +23,9 @@
                     <h3 class="text-3xl font-bold mb-4">
                        Content of post
                     </h3>
-                    <div class="text-lg space-y-6">
+                <div class="text-2xl  space-y-6">
                         <p>
-                           {{$post->content}}
+                           {!!$post->content!!}
                         </p>
                     </div>
                 </div>

@@ -19,14 +19,15 @@
                             {{$post->title}}
                         </a>
                     </td>
-                    <td
-                        class="px-4 py-8 border-t border-b border-gray-300 text-lg"
-                    >
+
+
+                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                         <a href="{{route("post.edit",$post->id)}}" class="text-blue-600 text-xl hover:underline hover:text-blue-800 px-6 py-2 rounded-xl">Edit</a>
                     </td>
-                    <td
-                        class="px-4 py-8 border-t border-b border-gray-300 text-lg"
-                    >
+
+
+
+                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                         <form action="{{route("post.destroy",$post->id)}}" method="POST">
                             @csrf
                             @method("DELETE")

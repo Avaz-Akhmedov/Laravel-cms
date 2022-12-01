@@ -34,11 +34,11 @@
                         @foreach($posts as $post)
                         <tr>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <a href="{{route("post.show",$post->id)}}" class="text-blue-800 text-base font-semibold hover:underline whitespace-no-wrap">{{$post->title}}</a>
+                                <a href="{{route("post.show",$post->id)}}" class="text-blue-800 text-xl font-semibold hover:underline whitespace-no-wrap">{{$post->title}}</a>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-black text-xl capitalize font-semibold whitespace-no-wrap">
-                                    {{$post->category}}
+                                    {{$post->category->name}}
                                 </p>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white">

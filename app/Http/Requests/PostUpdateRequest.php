@@ -24,11 +24,12 @@ class PostUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-                 "title" => "required|max:255",
-                 "content" => "required|between:30,1000",
-                 "category" => "required",
-                 "tags" => "required",
-                 "image" => "mimes:jpeg,png|image|max:2000"
+            "title" => "required|max:255",
+            "content" => "required|between:30,1000",
+            "image" => "mimes:jpeg,png|image|max:2000",
+            "category_id" => "required|exists:categories,id",
+            "tags" => "required|array",
+            "tags.*" => "required|string|max:100"
         ];
     }
 }
